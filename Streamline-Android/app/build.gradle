@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "org.mobiledevsberkeley.streamline"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+    maven { url "https://maven.google.com" }
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //Sliding UI for the music player
+    
+
+    //Spotify
+    compile(name: 'spotify-android-auth-1.0.0', ext: 'aar')
+    compile(name: 'spotify-player-24-noconnect-2.20b', ext: 'aar')
+    compile 'com.github.kaaes:spotify-web-api-android:0.4.1'
+
+    //Picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile('com.android.support:appcompat-v7:26.0.2')
+    compile('com.android.support.constraint:constraint-layout:1.0.2')
+    compile('com.sothree.slidinguppanel:library:3.4.0')
+    compile ('com.sothree.slidinguppanel:library:3.4.0')
+    compile ('com.github.kaaes:spotify-web-api-android:0.4.1')
+    compile ('com.android.support:appcompat-v7:26.0.2')
+    compile ('com.android.support.constraint:constraint-layout:1.0.2')
+    compile ('com.android.support:recyclerview-v7:26.0.2')
+    compile ('com.android.support:cardview-v7:26.0.2')
+    compile ('com.google.firebase:firebase-database:10.0.1')
+    testCompile 'junit:junit:4.12'
+}
+
+
+
+apply plugin: 'com.google.gms.google-services'
